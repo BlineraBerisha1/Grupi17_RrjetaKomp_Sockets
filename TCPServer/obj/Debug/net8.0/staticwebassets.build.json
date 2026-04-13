@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "e/CUgcD7kriWmonpWw6/nCVKSRl9C4sIxU22LRIPtoo=",
+  "Source": "TCPServer",
+  "BasePath": "_content/TCPServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
