@@ -19,7 +19,7 @@ class Program
 
         stream = client.GetStream();
 
-        Thread t = new Thread(Receive);
+       Thread t = new Thread(Receive);
         t.Start();
 
         Console.WriteLine("Connected to server!");
