@@ -36,6 +36,15 @@ class Program
             Send(msg);
         }
     }
+    static void Send(string msg)
+    {
+        if (stream == null) return;
+        
+        byte[] data = Encoding.UTF8.GetBytes(msg);
+        stream.Write(data, 0, data.Length);
+    }
+    
+
 }
 
 
