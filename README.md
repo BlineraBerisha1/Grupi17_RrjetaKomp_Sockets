@@ -4,10 +4,10 @@ Programming with Sockets-TCP C#
 This project demonstrates communication between multiple devices using TCP sockets in C#.
 We implemented a simple client-server system where one device acts as a server and others connect as clients.
 
-⚙️ Features
-Server accepts multiple clients
-Clients can connect and send messages
-Real-time communication
+⚙️ Features:
+Server accepts multiple clients,
+Clients can connect and send messages;
+Real-time communication;
 Role-based connection (server/client)
 
 🛠️ Technology: C#, .NET (Sockets, TCP)
@@ -21,9 +21,9 @@ Run client program on other devices
 Enter server IP and port
 Connect and start communication
 
-🌐 Requirements
-Same network (LAN/WiFi)
-IP address of server
-Open port for communication
+🌐 Requirements:
+Same network (LAN/WiFi),
+IP address of server,
+Open port for communication,
 
 📖 Note:TCP ensures reliable and ordered data transmission between devices.
