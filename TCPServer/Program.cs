@@ -20,14 +20,64 @@ class Program
 
 
 //Blini
-    static void Main()
+   static void Main()
     {
-  
+        if (!Directory.Exists(baseFolder))
+            Directory.CreateDirectory(baseFolder);
+
+        server = new TcpListener(IPAddress.Parse(ip), port);
+        server.Start();
+
+        Console.WriteLine($"Server running on {ip}:{port}");
+
+        while (true)
+        {
+            TcpClient client = server.AcceptTcpClient();
+            clients.Add(client);
+
+            string role = (clients.Count == 1) ? "ADMIN" : "USER";
+            clientRoles[client] = role;
+
+            Console.WriteLine($"Client connected -> Role: {role}");
+
+            Thread t = new Thread(HandleClient);
+            t.Start(client);
+        }
     }
 
     static void HandleClient(object? obj)
     {
-       
+        if (obj == null) return;
+        TcpClient client = (TcpClient)obj;
+        NetworkStream stream = client.GetStream();
+
+        byte[] buffer = new byte[2048];
+
+        Send(client, $"ROLE:{clientRoles[client]}");
+
+        while (true)
+        {
+            try
+            {
+                int bytes = stream.Read(buffer, 0, buffer.Length);
+                if (bytes == 0) break;
+
+                string request = Encoding.UTF8.GetString(buffer, 0, bytes);
+                Console.WriteLine("REQUEST: " + request);
+
+                string response = ProcessRequest(client, request);
+
+                Send(client, response);
+            }
+            catch
+            {
+                break;
+            }
+        }
+
+        clients.Remove(client);
+        clientRoles.Remove(client);
+        client.Close();
     }
 
 //Procesimi i kerkesave nga klientet
