@@ -1,4 +1,3 @@
-//Server 
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -7,19 +6,17 @@ using System.Text;
 using System.Threading;
 using System.IO;
 
-class Program
-{    //Serveri TCP qe pranon lidhje nga klientet, i cili ka role të ndryshme (ADMIN dhe USER) dhe lejon komandat per lexim, shkrim, listim dhe ekzekutim të skedareve ne nje dosje te caktuar. ADMIN mund të beje gjithçka, ndersa USER mund vetem të lexoje dhe listoje skedaret.
+class Program{    
+//Serveri TCP qe pranon lidhje nga klientet, i cili ka role të ndryshme (ADMIN dhe USER) dhe lejon komandat per lexim, shkrim, listim dhe ekzekutim të skedareve ne nje dosje te caktuar. ADMIN mund të beje gjithçka, ndersa USER mund vetem të lexoje dhe listoje skedaret.
     static TcpListener? server;
     static Dictionary<TcpClient, string> clientRoles = new Dictionary<TcpClient, string>();
     static List<TcpClient> clients = new List<TcpClient>();
 
-    static string ip = "192.168.1.125"; // real network IP-Blinera
+    static string ip = "192.168.1.125"; // IP test
     static int port = 5050;
 
     static string baseFolder = "ServerFiles";
 
-
-//Blini
    static void Main()
     {
         if (!Directory.Exists(baseFolder))
