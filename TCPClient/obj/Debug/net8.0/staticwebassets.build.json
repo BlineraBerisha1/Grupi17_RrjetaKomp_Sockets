@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "oH41RfktxCUiLtd6/IEq1jyyj6k9QWeIWfFB3pitTmY=",
+  "Source": "TCPClient",
+  "BasePath": "_content/TCPClient",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
